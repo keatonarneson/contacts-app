@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Lato;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.sidebar-container {
+  background-color: #f8faff;
+  width: 228px;
+}
+
+.sidebar-container h3 {
+  font-size: 36px;
+  padding-left: 17px;
+  padding-top: 14px;
+  margin-bottom: 20px;
+}
+
+.sidebar-container ul {
+  list-style-type: none;
+}
+
+.sidebar-container li {
+  font-size: 18px;
+  height: 35px;
+  line-height: 35px;
+  padding-left: 20px;
+}
+
+.sidebar-container li:hover {
+  background-color: #579aff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.main-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 796px;
+  padding: 25px;
+  border: 1px solid grey;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.alert-container {
+  height: 52px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type='text'] {
+  box-sizing: border-box;
+  width: 345px;
+  border: 1px solid #d7e7ff;
+  font-size: 18px;
+  color: #444444;
+  background-color: #f9fbff;
+  padding: 7px 12px;
+}
+
+label {
+  color: #555555;
+  font-size: 12px;
+}
+
+.email-container {
+  flex-grow: 1;
+}
+
+.email-container h6 {
+  color: #555555;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.email-container ul {
+  list-style-type: none;
+}
+
+.email-container li {
+  color: #555555;
+  font-size: 18px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.button-container {
+  display: flex;
+}
+
+button {
+  width: 120px;
+  height: 36px;
+  border: none;
+  font-size: 20px;
+}
+
+.button-group {
+  margin-left: auto;
+}
+
+#delete-btn {
+  background-color: #ff5757;
+  color: white;
+}
+
+#cancel-btn {
+  background-color: #f9fbff;
+  border: 1px solid #579aff;
+  margin-right: 25px;
+}
+
+#save-btn {
+  background-color: #579aff;
+  color: white;
 }
