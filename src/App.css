@@ -40,13 +40,67 @@ body {
   color: white;
 }
 
+.contacts-header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.circle {
+  border-radius: 50%;
+  position: relative;
+}
+.bar {
+  margin: 0 auto;
+  position: absolute;
+  background-color: #fff;
+}
+
+.horizontal {
+  width: 75%;
+  height: 6.25%;
+  left: 12.5%;
+  top: 47%;
+}
+
+.vertical {
+  width: 6.25%;
+  height: 75%;
+  left: 47%;
+  top: 12.5%;
+}
+
+.contacts-add {
+  width: 32px;
+  height: 32px;
+  background-color: #579aff;
+  margin-right: 17px;
+  margin-top: 21px;
+}
+
+.email-add {
+  width: 24px;
+  height: 24px;
+  background-color: #579aff;
+  margin-right: 10px;
+}
+
+#add-email {
+  color: #579aff;
+  font-size: 18px;
+}
+
+.add-email-container {
+  display: flex;
+  align-items: center;
+  line-height: 30px;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 796px;
   padding: 25px;
-  border: 1px solid grey;
 }
 
 .alert-container {
@@ -123,4 +177,14 @@ button {
 #save-btn {
   background-color: #579aff;
   color: white;
+}
+
+#addEmail-btn {
+  background-color: #579aff;
+  color: white;
+  margin-left: 25px;
+}
+
+.hidden {
+  display: none;
 }
