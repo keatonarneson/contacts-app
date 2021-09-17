@@ -2,12 +2,16 @@ import './App.css';
 import Sidebar from './components/Sidebar';
 import Main from './components/Main';
 
+import { GlobalProvider } from './context/GlobalState';
+
 const App = () => {
   return (
-    <div className="app">
-      <Sidebar />
-      <Main />
-    </div>
+    <GlobalProvider>
+      <div className="app">
+        <Sidebar />
+        <Main />
+      </div>
+    </GlobalProvider>
   );
 };
 
