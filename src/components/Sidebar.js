@@ -1,31 +1,32 @@
-import '../App.css';
+import { useContext, useEffect } from 'react';
+import { GlobalContext } from '../context/GlobalState';
+
+import Contact from './ContactItem';
 
 const Sidebar = () => {
+  const { contacts, getContacts } = useContext(GlobalContext);
+
+  useEffect(() => {
+    getContacts();
+  }, []);
+
+  const clickHandler = e => {};
+
   return (
     <div className="sidebar-container">
-      <h3>Contacts</h3>
+      <div className="contacts-header-container">
+        <h3>Contacts</h3>
+
+        <button className="circle contacts-add">
+          <div className="bar horizontal" />
+          <div className="bar vertical" />
+        </button>
+      </div>
 
       <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
-        <li>Item 6</li>
-        <li>Item 7</li>
-        <li>Item 8</li>
-        <li>Item 9</li>
-        <li>Item 10</li>
-        <li>Item 11</li>
-        <li>Item 12</li>
-        <li>Item 13</li>
-        <li>Item 14</li>
-        <li>Item 15</li>
-        <li>Item 16</li>
-        <li>Item 17</li>
-        <li>Item 18</li>
-        <li>Item 19</li>
-        <li>Item 20</li>
+        {contacts.map(contact => (
+          <Contact key={contact.id} contact={contact} />
+        ))}
       </ul>
     </div>
   );
