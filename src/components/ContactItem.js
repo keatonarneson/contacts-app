@@ -1,19 +1,21 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
-const ContactItem = ({ contact }) => {
+const ContactItem = ({ contact, activeIndex, setActiveIndex, index }) => {
   const { setSelectedContact } = useContext(GlobalContext);
-
-  // useEffect(() => {
-  //   getContacts();
-  // }, []);
 
   const clickHandler = () => {
     setSelectedContact(contact);
+    setActiveIndex(index);
   };
 
   return (
-    <li onClick={clickHandler}>{`${contact.firstName} ${contact.lastName}`}</li>
+    <li
+      className={activeIndex === index ? 'selected-contact' : ''}
+      onClick={clickHandler}
+    >
+      {contact && `${contact.firstName} ${contact.lastName}`}
+    </li>
   );
 };
 
