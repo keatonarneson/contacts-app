@@ -4,14 +4,35 @@ export default (state, action) => {
     case 'GET_CONTACTS':
       return {
         ...state,
+        loading: false,
         contacts: action.payload,
       };
-    case 'CONTACTS_ERROR':
+    case 'ADD_CONTACT':
       return {
         ...state,
-        error: action.payload,
+        contacts: [...state.contacts, action.payload],
       };
-    case 'SET_SELECTED_CONTACTS':
+    case 'UPDATE_CONTACT':
+      const updatedContact = action.payload;
+
+      const updatedContacts = state.contacts.map(contact => {
+        if (contact.id === updatedContact.id) {
+          return updatedContact;
+        }
+        return contact;
+      });
+      return {
+        ...state,
+        contacts: updatedContacts,
+      };
+    case 'DELETE_CONTACT':
+      return {
+        ...state,
+        contacts: state.contacts.filter(
+          contact => contact.id !== action.payload
+        ),
+      };
+    case 'SET_SELECTED_CONTACT':
       return {
         ...state,
         selectedContact: action.payload,
@@ -21,10 +42,15 @@ export default (state, action) => {
         ...state,
         showEmailForm: action.payload,
       };
-    case 'SET_TEMP_CONTACT':
+    case 'SET_ALERT_MESSAGE':
       return {
         ...state,
-        tempContact: action.payload,
+        message: action.payload,
+      };
+    case 'SET_MESSAGE_TYPE':
+      return {
+        ...state,
+        messageType: action.payload,
       };
     default:
       return state;
