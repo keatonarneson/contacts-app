@@ -1,12 +1,18 @@
-const EmailForm = ({ showEmailForm, value, setValue, setTempContactEmail }) => {
+const EmailForm = ({
+  showEmailForm,
+  formValue,
+  setFormValue,
+  emailArray,
+  setEmailArray,
+}) => {
   const handleChange = e => {
-    setValue(e.target.value);
+    setFormValue(e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    // setTempContactEmail(value);
-    setValue('');
+    setEmailArray([...emailArray, formValue]);
+    setFormValue('');
   };
 
   return (
@@ -15,13 +21,18 @@ const EmailForm = ({ showEmailForm, value, setValue, setTempContactEmail }) => {
         <label>Email</label>
         <br />
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="Enter Email"
-          value={value}
+          required
+          value={formValue}
           onChange={handleChange}
         />
-        <button id="addEmail-btn" type="submit">
+        <button
+          id="addEmail-btn"
+          type="submit"
+          disabled={formValue.length <= 0}
+        >
           Add Email
         </button>
       </form>
