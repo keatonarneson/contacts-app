@@ -26,6 +26,7 @@ const Main = ({
     updateContact,
     deleteContact,
     message,
+    contacts,
   } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -44,7 +45,14 @@ const Main = ({
     if (selectedContact.emails) {
       setEmailArray(selectedContact.emails);
     }
-  }, [selectedContact, setEmailArray]);
+
+    // Highlights ContactItem
+    if (selectedContact.id) {
+      let index = contacts.findIndex(i => i.id === selectedContact.id);
+      setActiveIndex(index);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedContact, setEmailArray, contacts]);
 
   const handleChangeFirst = e => {
     setValueFirst(e.target.value);
