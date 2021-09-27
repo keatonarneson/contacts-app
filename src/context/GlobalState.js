@@ -83,6 +83,7 @@ export const GlobalProvider = ({ children }) => {
         setAlertMessage('');
       }, 5000);
 
+      setSelectedContact(res.data);
       getContacts();
     } catch (err) {
       setAlertMessage(err.response.data.message);
