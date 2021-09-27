@@ -54,6 +54,10 @@ const Main = ({
     setValueLast(e.target.value);
   };
 
+  const handleFormEnter = e => {
+    e.preventDefault();
+  };
+
   const handleEmailForm = () => {
     toggleShowEmailForm(showEmailForm);
   };
@@ -70,12 +74,6 @@ const Main = ({
     } else {
       addContact(contact);
     }
-    setValueEmail('');
-    setEmailArray([]);
-    setValueFirst('');
-    setValueLast('');
-    setSelectedContact({});
-    setActiveIndex(-1);
 
     getContacts();
   };
@@ -103,7 +101,7 @@ const Main = ({
       <div className="alert-container">{message && <Alert />}</div>
 
       <div className="form-container">
-        <form>
+        <form onSubmit={handleFormEnter}>
           <label htmlFor="first-name">First Name</label>
           <br />
           <input
@@ -116,7 +114,7 @@ const Main = ({
             onChange={handleChangeFirst}
           />
         </form>
-        <form>
+        <form onSubmit={handleFormEnter}>
           <label htmlFor="last-name">Last Name</label>
           <br />
           <input
@@ -152,7 +150,9 @@ const Main = ({
             <div className="bar vertical" />
           </button>
 
-          <p id="add-email">add email</p>
+          <p id="add-email" onClick={handleEmailForm}>
+            add email
+          </p>
         </div>
         <EmailForm
           showEmailForm={showEmailForm}
