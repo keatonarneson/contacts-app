@@ -42,17 +42,19 @@ const Main = ({
   }, [selectedContact, setValueFirst, setValueLast]);
 
   useEffect(() => {
-    if (selectedContact.emails) {
-      setEmailArray(selectedContact.emails);
-    }
-
     // Highlights ContactItem
     if (selectedContact.id) {
       let index = contacts.findIndex(i => i.id === selectedContact.id);
       setActiveIndex(index);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedContact, setEmailArray, contacts]);
+  }, [selectedContact, contacts]);
+
+  useEffect(() => {
+    if (selectedContact.emails) {
+      setEmailArray(selectedContact.emails);
+    }
+  }, [selectedContact, setEmailArray]);
 
   const handleChangeFirst = e => {
     setValueFirst(e.target.value);
